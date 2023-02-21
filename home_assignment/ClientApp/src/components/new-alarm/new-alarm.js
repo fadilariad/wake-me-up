@@ -56,7 +56,7 @@ export default function NewAlarm({newAlarmAdded}) {
                                   onClose={() => setAlert(INIT_ALERT_STATE)}
                                   dismissible>
                 {alert.content}
-                {alert.link && <Alert.Link onClick={() => navigate(alert.link)}>Go TO Event</Alert.Link>}
+                {alert.link && <Alert.Link onClick={() => navigate(alert.link)}> Go to event</Alert.Link>}
             </Alert>}
             <Form>
                 <Form.Group controlId="name">

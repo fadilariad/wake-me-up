@@ -36,14 +36,16 @@ export default function AppNotification() {
         if (connection && !connection._connectionStarted) {
             connection.start().then(
                 () => {
-                    connection.on("ReceiveNotification", alarm => {
-                            setAlarm(alarm);
+                    connection.on("ReceiveNotification", newAlarm => {
+                           if(!alarm || !(alarm.id === newAlarm.id)) {
+                            setAlarm(newAlarm);
+                           }
                     });
                 }
             )
                 .catch(console.log)
         }
-    }, [connection]);
+    }, [connection, alarm]);
 
     function useNotificationPermission(status) {
         setNotificationPermission(status)
